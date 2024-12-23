@@ -19,20 +19,28 @@ export default function Dialog({ openModal, closeModal, children }) {
         background: "linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.8) 50%, rgba(252,176,69,0.8) 100%)",
         border: "0px solid transparent",
         borderRadius: "20px",
-        width: "500px",
+        width: "500px", 
       }}
       ref={ref}
       onCancel={closeModal}
     >
-
-      {children}
-
-      <button 
-        className="btn btn-dark" 
-        onClick={closeModal}
+      <div 
+        style={{
+        display:"flex",
+        flexDirection:"column",
+        rowGap:"20px"}}
       >
-        <X fill="lightcoral" size="24px"/>
-      </button>
+        {children}
+
+        <button 
+          className="btn btn-dark" 
+          onClick={closeModal}
+        >
+          <X fill="lightcoral" size="24px"/>
+        </button>
+
+      </div>
+
     </dialog>
   );
 }

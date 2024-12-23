@@ -1,12 +1,13 @@
 import { useState, Suspense, lazy, useEffect } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
 import './App.css'
-import ReactLogoComponent from './ReactLogoComponent.jsx'
-import Section from './Section.jsx'
+//import Section from './Section.jsx'
+const Section = lazy(()=> import('./Section.jsx'))
 import LoadingScreen from './LoadingScreen.jsx'
-import Video from './Video.jsx'
-import IframeYT from './IframeYT.jsx'
+//const LoadingScreen = lazy(()=> import('./LoadingScreen.jsx'))
+//import Video from './Video.jsx'
+const Video = lazy(()=> import('./Video.jsx'))
+//import IframeYT from './IframeYT.jsx'
+//const Home = lazy(()=> import('./Home.jsx'))
 
 export default function App() {
 
@@ -14,10 +15,13 @@ export default function App() {
   return (
     <>
 
-    <Suspense fallback={<LoadingScreen  color="gray" taste="dashed" />}>
+    <Suspense fallback={<LoadingScreen  color="pink" taste="dashed" />}>
+
 
       <Section title="The end of history(?)" >
-          <IframeYT topic="Girl Boss - YASS QUEEN! 💅🏻🎀" src="https://www.youtube.com/embed/zxhSthZ9fqU" />
+        <Video topic="Supply and demand..." src="https://www.youtube.com/embed/ebvZExtrmLY" />
+        <Video topic="T.I.N.A" src="https://www.youtube.com/embed/IrNQeYYvabg" />
+        <Video topic="Girl Boss - YASS QUEEN! 💅🏻🎀" src="https://www.youtube.com/embed/zxhSthZ9fqU" />
       </Section>
 
 
