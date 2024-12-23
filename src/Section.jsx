@@ -1,4 +1,4 @@
-import './Section.module.css'
+import styles from './Section.module.css'
 //import { useState } from 'react'
 import { useState, useEffect } from 'react'
 //import React, { useState, useRef, useEffect } from 'react'
@@ -26,24 +26,9 @@ export default function Section({title, children}){
     setIsFull(completed)
   }
 
-
-  //useEffect(() => {
-  //  const viewedAlready = localStorage.getItem("_watched_") || []
-  //  let containedVideos = []
-  //  React.Children.forEach(children, (child) => {
-  //    if (React.isValidElement(child)) {
-  //      containedVideos.push(child.props.topic)
-  //    }
-  //  })
-  //  const completed = containedVideos.every((elem)=> viewedAlready.includes(elem))
-  //  console.log(completed)
-  //  setIsFull(completed)
-  //
-  //} )
-  
   useEffect(()=>{
     console.log("from useEffect", isFull)
-    markAsCompleted()
+    //markAsCompleted()
 
   }, [isFull])
 
@@ -51,8 +36,9 @@ export default function Section({title, children}){
 
 
   return(
-  <section className={`card ${ isFull? "bg-success" : ""} `} onClick={markAsCompleted}>
+  <section className={`card ${ isFull? `${styles.full}` : ""} `} onClick={markAsCompleted}>
     
+      {console.log(styles)}
     <button 
         onClick={()=>{setVisibility(!visibility)}}
     > 
