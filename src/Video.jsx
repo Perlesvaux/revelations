@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import "./Video.module.css"
 //import { useState, Suspense, lazy, useEffect } from 'react'
 //const Dialog = lazy(()=> import('./Dialog.jsx'))
 import Dialog from './Dialog.jsx'
@@ -20,9 +21,7 @@ export default function Video({ topic, src }){
 
       <Dialog  closeModal={()=>{setModal(false); setWatched(true)}} openModal={modal}>
 
-        { !isReady && <div style={{
-          height:"600px", margin:"auto", alignItems: 'center', display: "flex",  justifyContent: "center"
-        }}> <LoadingScreen taste="dotted" color="blue"/></div> }
+        { !isReady && <aside> <LoadingScreen taste="dotted" color="blue"/></aside> }
           <iframe
               width="100%" 
               height="600px"
