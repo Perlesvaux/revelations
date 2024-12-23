@@ -1,5 +1,7 @@
-import { useState, Suspense, lazy, useEffect } from 'react'
-const Dialog = lazy(()=> import('./Dialog.jsx'))
+import { useState } from 'react'
+//import { useState, Suspense, lazy, useEffect } from 'react'
+//const Dialog = lazy(()=> import('./Dialog.jsx'))
+import Dialog from './Dialog.jsx'
 import LoadingScreen from './LoadingScreen.jsx'
 
 export default function Video({ topic, src }){
@@ -8,9 +10,8 @@ export default function Video({ topic, src }){
   const [isReady, setIsReady] = useState(false)
 
     return <>
-        <Suspense fallback={ <LoadingScreen /> }>
       <button 
-        className={ `btn btn-${watched? 'success' : 'secondary'} text-${watched? 'dark' : 'white'}` } 
+        className={ `btn btn-${watched? 'primary' : 'secondary'} text-${watched? 'dark' : 'white'}` } 
         onClick={()=> { setModal(true); setIsReady(false) }  } 
       > 
         <strong>{ topic }</strong> 
@@ -34,21 +35,5 @@ export default function Video({ topic, src }){
           />
 
       </Dialog>
-        </Suspense>
       </>
 }
-
-
-
-
-//export default function IframeYt({isPlaying, src, title}){
-//
-//  return (<iframe
-//    width="100%" 
-//    height="600px"
-//    title={ title && title}
-//    frameBorder="0"  
-//    allowFullScreen
-//    src={ isPlaying && src }
-//  />)
-//}

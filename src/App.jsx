@@ -1,11 +1,11 @@
 import { useState, Suspense, lazy, useEffect } from 'react'
 import './App.css'
-//import Section from './Section.jsx'
-const Section = lazy(()=> import('./Section.jsx'))
-import LoadingScreen from './LoadingScreen.jsx'
+import Section from './Section.jsx'
+//const Section = lazy(()=> import('./Section.jsx'))
+//import LoadingScreen from './LoadingScreen.jsx'
 //const LoadingScreen = lazy(()=> import('./LoadingScreen.jsx'))
-//import Video from './Video.jsx'
-const Video = lazy(()=> import('./Video.jsx'))
+import Video from './Video.jsx'
+//const Video = lazy(()=> import('./Video.jsx'))
 //import IframeYT from './IframeYT.jsx'
 //const Home = lazy(()=> import('./Home.jsx'))
 
@@ -15,7 +15,6 @@ export default function App() {
   return (
     <>
 
-    <Suspense fallback={<LoadingScreen  color="pink" taste="dashed" />}>
 
 
       <Section title="The end of history(?)" >
@@ -25,9 +24,13 @@ export default function App() {
       </Section>
 
 
+      <Section title="The end of history(?)" >
+        <Video topic="Supply and demand..." src="https://www.youtube.com/embed/ebvZExtrmLY" />
+        <Video topic="T.I.N.A" src="https://www.youtube.com/embed/IrNQeYYvabg" />
+        <Video topic="Girl Boss - YASS QUEEN! 💅🏻🎀" src="https://www.youtube.com/embed/zxhSthZ9fqU" />
+      </Section>
 
 
-    </Suspense>
 
     </>
   )
