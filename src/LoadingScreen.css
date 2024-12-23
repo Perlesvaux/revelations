@@ -1,0 +1,88 @@
+.loader {
+  position: relative;
+  width: var(--dimensions);
+  height: var(--dimensions);
+  border-radius: var(--radius);
+  border-color: transparent; 
+  animation: rotate var(--duration-animation) linear infinite;
+}
+
+.loader::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  border-radius: var(--radius);
+  border-width: var(--border);
+  animation: fadeColor var(--duration-animation) linear infinite;
+  opacity: 1;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  border-radius: var(--radius);
+  border-width: var(--border);
+  animation: fadeColor var(--duration-animation) linear infinite;
+  opacity: 0;
+}
+
+@keyframes fadeColor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader.gray::before { border-color: Gainsboro Gainsboro Gainsboro DarkGray; }
+.loader.gray::after  { border-color: DarkGray;}
+
+.loader.pink::before { border-color: LightPink LightPink LightPink DeepPink; }
+.loader.pink::after  { border-color: DeepPink;}
+
+.loader.purple::before { border-color: LavenderBlush LavenderBlush LavenderBlush Orchid; }
+.loader.purple::after  { border-color: Orchid;}
+
+.loader.blue::before { border-color: LightBlue LightBlue LightBlue RoyalBlue; }
+.loader.blue::after  { border-color: RoyalBlue;}
+
+.loader.green::before { border-color: PaleGreen PaleGreen PaleGreen SeaGreen ; }
+.loader.green::after  { border-color: SeaGreen ;}
+
+.loader.red::before { border-color: MistyRose MistyRose MistyRose  Tomato ; }
+.loader.red::after  { border-color: Tomato ;}
+
+.loader.yellow::before { border-color: Ivory Ivory Ivory Gold ; }
+.loader.yellow::after  { border-color: Gold ;}
+
+
+.loader.dotted::before{ border-style: dotted; }
+.loader.solid::before{ border-style: solid; }
+.loader.ridge::before{ border-style: ridge; } 
+.loader.dashed::before{ border-style: dashed; }
+.loader.double::before{ border-style: double; }
+.loader.groove::before{ border-style: groove; }
+.loader.inset::before{ border-style: inset; }
+.loader.outset::before{ border-style: outset; }
+
+.loader.dotted::after{ border-style: dotted; }
+.loader.solid::after{ border-style: solid; }
+.loader.ridge::after{ border-style: ridge; } 
+.loader.dashed::after{ border-style: dashed; }
+.loader.double::after{ border-style: double; }
+.loader.groove::after{ border-style: groove; }
+.loader.inset::after{ border-style: inset; }
+.loader.outset::after{ border-style: outset; }
+
+
+.loader {
+  --border: 10px;
+  --duration-animation: 2s;
+  --dimensions: 70px;
+  --radius: 50%;
+}
