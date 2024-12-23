@@ -6,7 +6,7 @@ import Up from './Up.jsx'
 export default function Section({title, children}){
   const [visibility, setVisibility] = useState(false)
   return(
-  <div className="card" style={{rowGap: "1em", width:"500px"}}>
+  <div className="card" style={{rowGap: "1em", width:"100%"}}>
     
     <button 
         onClick={()=>{setVisibility(!visibility)}}

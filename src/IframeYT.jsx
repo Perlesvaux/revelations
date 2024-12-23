@@ -1,10 +1,8 @@
 import { useState, Suspense, lazy, useEffect } from 'react'
 import Dialog from './Dialog.jsx'
-//import Up from './Up.jsx'
-//import Down from './Down.jsx'
 import LoadingScreen from './LoadingScreen.jsx'
 
-export default function Video({ topic, children }){
+export default function IframeYt({ topic, src }){
   const [modal, setModal] = useState(false)
   const [watched, setWatched] = useState(false)
 
@@ -19,8 +17,29 @@ export default function Video({ topic, children }){
 
       <Dialog closeModal={()=>{setModal(false); setWatched(true)}} openModal={modal}>
         <Suspense fallback={ <LoadingScreen /> }>
-          {children}
+          <iframe
+              width="100%" 
+              height="600px"
+              title={ topic && topic}
+              frameBorder="0"  
+              allowFullScreen
+              src={ modal && src }
+            />
         </Suspense>
       </Dialog></>
 }
 
+
+
+
+//export default function IframeYt({isPlaying, src, title}){
+//
+//  return (<iframe
+//    width="100%" 
+//    height="600px"
+//    title={ title && title}
+//    frameBorder="0"  
+//    allowFullScreen
+//    src={ isPlaying && src }
+//  />)
+//}
