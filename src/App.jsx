@@ -1,9 +1,25 @@
 //import { useState, Suspense, lazy, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Section from './Section.jsx'
 import Video from './Video.jsx'
 
 export default function App() {
+  const [watchList, setWatchList] = useState(() => {
+    const saved = localStorage.getItem("_watched_");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("_watched_", JSON.stringify(watchList));
+  }, [watchList]);
+
+  function addToWatchList(topic) {
+    setWatchList((prevWatchList) => {
+      const updated = [...prevWatchList, topic];
+      return [...new Set(updated)]; // Ensure unique entries
+    });
+  }
 
   return (
     <>
@@ -11,10 +27,10 @@ export default function App() {
       Combatir el <strong>Brainrot</strong> es deber de <strong>todos</strong>.</span>
 
       <Section title="The end of history (?)" >
-        <Video topic="Supply and demand" src="https://www.youtube.com/embed/ebvZExtrmLY" />
-        <Video topic="⚡ Shock Therapy ⚡" src="https://www.youtube.com/embed/IrNQeYYvabg" />
-        <Video topic="There should be another way 🤔"  src="https://www.youtube.com/embed/AAHrkNOGME0" />
-        <Video topic="A New Hope!" src="https://www.youtube.com/embed/8GWKsCOPb7E" />
+        <Video topic="Supply and demand" src="https://www.youtube.com/embed/ebvZExtrmLY"    addToWatchList={addToWatchList} />
+        <Video topic="⚡ Shock Therapy ⚡" src="https://www.youtube.com/embed/IrNQeYYvabg"  addToWatchList={addToWatchList}  />
+        <Video topic="There should be another way 🤔"  src="https://www.youtube.com/embed/AAHrkNOGME0" addToWatchList={addToWatchList} />
+        <Video topic="A New Hope!" src="https://www.youtube.com/embed/8GWKsCOPb7E"  addToWatchList={addToWatchList}/>
       </Section>
 
       <Section title="Body-count does (not) matter">
