@@ -15,7 +15,7 @@ export default function Video({ topic, src, addToWatchList }){
   }, [isReady]
   )
 
-    return <>
+    return <div key={`${watched? 'on' : 'off'}`}>
       <button 
         className={ `btn btn-${watched? 'primary' : 'secondary'} text-${watched? 'dark' : 'white'}` } 
         onClick={()=> { setModal(true); setIsReady(false); addToWatchList(topic); }  } 
@@ -39,5 +39,5 @@ export default function Video({ topic, src, addToWatchList }){
           />
 
       </Dialog>
-      </>
+      </div>
 }
