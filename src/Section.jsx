@@ -7,38 +7,42 @@ import { useState, useEffect } from 'react'
 import Down from './Down.jsx'
 import Up from './Up.jsx'
 
-export default function Section({title, children}){
+export default function Section({title, isFull, watchList, issues, children}){
   const [visibility, setVisibility] = useState(false)
-  const [isFull, setIsFull] = useState(()=>{
-    const viewedAlready = localStorage.getItem("_watched_") || []
-    const containedVideos = children.map(child => child.props.topic )
-    const completed = containedVideos.every((elem)=> viewedAlready.includes(elem))
-    console.log(completed)
-    return completed
-  })
-
+  //const [isFull, setIsFull] = useState(()=>{
+  //  const viewedAlready = localStorage.getItem("_watched_") || []
+  //  const containedVideos = children.map(child => child.props.topic )
+  //  const completed = containedVideos.every((elem)=> viewedAlready.includes(elem))
+  //  return completed
+  //})
+  //
   function markAsCompleted(){
-    console.log("from func")
-    const viewedAlready = localStorage.getItem("_watched_") || []
-    console.log(children)
+    const viewedAlready = watchList
+    //const viewedAlready = localStorage.getItem("_watched_") || []
     const containedVideos = children.map(child => child.props.topic )
     const completed = containedVideos.every((elem)=> viewedAlready.includes(elem))
-    setIsFull(completed)
-  }
 
+    console.log(containedVideos, viewedAlready, completed)
+    if (completed) issues()
+  }
+  //
   useEffect(()=>{
     console.log("from useEffect", isFull)
-    //markAsCompleted()
+    markAsCompleted()
 
-  }, [isFull])
+    return ()=>  markAsCompleted()
 
+  }, [watchList])
+  //
+  //
+  ////console.log(children.length)
 
 
 
   return(
-  <section className={`card ${ isFull? `${styles.full}` : ""} `} onClick={markAsCompleted}>
+  <section className={`card ${ isFull? `${styles.full}` : ""} `} >
+      {console.log(isFull)}
     
-      {console.log(styles)}
     <button 
         onClick={()=>{setVisibility(!visibility)}}
     > 

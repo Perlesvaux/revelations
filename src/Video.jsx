@@ -33,6 +33,8 @@ export default function Video({ topic, src, addToWatchList }){
               title={ topic ? topic : '' }
               frameBorder="0"  
               allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               src={ modal ? src : '' }
               onLoad={() => setIsReady(true)}
               style={{ display: isReady ? "block" : "none" }}
