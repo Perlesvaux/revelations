@@ -11,23 +11,31 @@ export default function Video({ topic, src, addToWatchList }){
   const [isReady, setIsReady] = useState(false)
 
   useEffect(()=>{
-    setWatched( localStorage.getItem("_watched_").includes(topic)   )
-  }, [isReady]
+
+    setWatched(() => {
+        const saved = localStorage.getItem("_watched_");
+        return saved ? JSON.parse(saved).includes(topic) : false;
+      })
+
+    //setWatched( localStorage.getItem("_watched_").includes(topic) || []   )
+  }, [isReady, modal]
   )
 
     return <div key={`${watched? 'on' : 'off'}`}>
       <button 
         className={ `btn btn-${watched? 'primary' : 'secondary'} text-${watched? 'dark' : 'white'}` } 
-        onClick={()=> { setModal(true); setIsReady(false); addToWatchList(topic); }  } 
+        onClick={()=> { setModal(true);  addToWatchList(topic); }  } 
+        //onClick={()=> { setModal(true); setIsReady(false); addToWatchList(topic); }  } 
       > 
         <strong>{ topic }</strong> 
 
       </button> 
 
-      <Dialog  closeModal={()=>{setModal(false); }} openModal={modal}>
+      <Dialog  closeModal={()=>{setModal(false); setIsReady(true) }} openModal={modal}>
 
         { !isReady && <aside> <LoadingScreen taste="dotted" color="blue"/></aside> }
           <iframe
+              autoFocus
               width="100%" 
               height="600px"
               title={ topic ? topic : '' }
@@ -35,7 +43,8 @@ export default function Video({ topic, src, addToWatchList }){
               allowFullScreen
               referrerPolicy="strict-origin-when-cross-origin"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              src={ modal ? src : '' }
+              //src={ modal ? src : '' }
+              src={ src }
               onLoad={() => setIsReady(true)}
               style={{ display: isReady ? "block" : "none" }}
           />
