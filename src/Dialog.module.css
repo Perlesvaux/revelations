@@ -1,4 +1,4 @@
-dialog{
+.glassdialog{
   background: linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.8) 50%, rgba(252,176,69,0.8) 100%);
   border: 0px solid transparent;
   border-radius: 20px;

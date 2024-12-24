@@ -1,7 +1,7 @@
 // Modal as a separate component
 import { useEffect, useRef } from "react";
 import X from "./X.jsx"
-import "./Dialog.module.css"
+import styles from "./Dialog.module.css"
 
 export default function Dialog({ openModal, closeModal, children }) {
   const ref = useRef();
@@ -15,7 +15,7 @@ export default function Dialog({ openModal, closeModal, children }) {
   }, [openModal]);
 
   return (
-    <dialog 
+    <dialog className={styles.glassdialog}
       ref={ref}
       onCancel={closeModal}
     >
