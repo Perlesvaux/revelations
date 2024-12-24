@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import "./Video.module.css"
+import styles from "./Video.module.css"
 //import { useState, Suspense, lazy, useEffect } from 'react'
 //const Dialog = lazy(()=> import('./Dialog.jsx'))
 import Dialog from './Dialog.jsx'
@@ -33,7 +33,7 @@ export default function Video({ topic, src, addToWatchList }){
 
       <Dialog  closeModal={()=>{setModal(false); setIsReady(true) }} openModal={modal}>
 
-        { !isReady && <aside> <LoadingScreen taste="dotted" color="blue"/></aside> }
+        { !isReady && <aside className={styles.loadingplaceholder}> <LoadingScreen taste="dotted" color="blue"/></aside> }
           <iframe
               autoFocus
               width="100%" 
