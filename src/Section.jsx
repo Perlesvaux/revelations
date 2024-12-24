@@ -1,42 +1,21 @@
-import styles from './Section.module.css'
-//import { useState } from 'react'
 import { useState, useEffect } from 'react'
-//import React, { useState, useRef, useEffect } from 'react'
-//import React, { useState, useEffect } from 'react'
-//import React, { useState } from 'react'
 import Down from './Down.jsx'
 import Up from './Up.jsx'
+import styles from './Section.module.css'
 
 export default function Section({title, isFull, watchList, issues, children}){
   const [visibility, setVisibility] = useState(false)
-  //const [isFull, setIsFull] = useState(()=>{
-  //  const viewedAlready = localStorage.getItem("_watched_") || []
-  //  const containedVideos = children.map(child => child.props.topic )
-  //  const completed = containedVideos.every((elem)=> viewedAlready.includes(elem))
-  //  return completed
-  //})
-  //
-  function markAsCompleted(){
-    const viewedAlready = watchList
-    //const viewedAlready = localStorage.getItem("_watched_") || []
-    const containedVideos = children.map(child => child.props.topic )
-    const completed = containedVideos.every((elem)=> viewedAlready.includes(elem))
 
-    console.log(containedVideos, viewedAlready, completed)
+  function markAsCompleted(){
+    const containedVideos = children.map(child => child.props.topic )
+    const completed = containedVideos.every((elem)=> watchList.includes(elem))
     if (completed) issues()
   }
   //
   useEffect(()=>{
     console.log("from useEffect", isFull)
     markAsCompleted()
-
-    return ()=>  markAsCompleted()
-
   }, [watchList])
-  //
-  //
-  ////console.log(children.length)
-
 
 
   return(

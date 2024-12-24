@@ -6,7 +6,13 @@ import Video from './Video.jsx'
 
 
 const initialState = {
-  n1: false
+  n1: false,
+  n2: false,
+  n3: false,
+  n4: false,
+  n5: false,
+  n6: false,
+  n7: false
 }
 
 function reducer(state, action) {
@@ -53,11 +59,21 @@ export default function App() {
       <Section title="The end of history (?)" isFull={state.n1} watchList={watchList}  issues={ ()=>dispatch({type:"completed", field:"n1"}) } >
         {
           [
-            { topic:"Supply and demand" ,src:"https://www.youtube.com/embed/ebvZExtrmLY"     },
-            { topic:"⚡ Shock Therapy ⚡" ,src:"https://www.youtube.com/embed/IrNQeYYvabg"   },
-            { topic:"There should be another way 🤔"  ,src:"https://www.youtube.com/embed/AAHrkNOGME0"   },
-            { topic:"A New Hope!" ,src:"https://www.youtube.com/embed/8GWKsCOPb7E"   }
+            { topic:"Supply and demand", src:"https://www.youtube.com/embed/ebvZExtrmLY"     },
+            { topic:"⚡ Shock Therapy ⚡", src:"https://www.youtube.com/embed/IrNQeYYvabg"   },
+            { topic:"There should be another way 🤔", src:"https://www.youtube.com/embed/AAHrkNOGME0"   },
+            { topic:"A New Hope!", src:"https://www.youtube.com/embed/8GWKsCOPb7E"   }
 
+          ].map((elem, indx)=> <Video key={indx} topic={elem.topic} src={elem.src} addToWatchList={addToWatchList} />)
+        }
+      </Section>
+
+
+      <Section title="Body-count does (not) matter" isFull={state.n2} watchList={watchList}  issues={ ()=>dispatch({type:"completed", field:"n2"}) } >
+        {
+          [
+            { topic:"¿Tan largo me lo fiáis...?", src:"https://www.youtube.com/embed/3XHhpjbPM40"},
+            { topic:"Patrick Bateman no existe (como Persona)", src:"https://www.youtube.com/embed/lqvgVeq-nso"} 
           ].map((elem, indx)=> <Video key={indx} topic={elem.topic} src={elem.src} addToWatchList={addToWatchList} />)
         }
       </Section>
