@@ -3,7 +3,7 @@ import { useState, useEffect, useReducer } from 'react'
 import './App.css'
 import Section from './Section.jsx'
 import Video from './Video.jsx'
-
+import Renew from './Renew.jsx'
 
 const initialState = {
   n1: false,
@@ -30,6 +30,7 @@ function reducer(state, action) {
 
 
 export default function App() {
+  const [renew, setRenew] = useState(false)
   const [state, dispatch] = useReducer(reducer, initialState)
   const [watchList, setWatchList] = useState(() => {
     const saved = localStorage.getItem("_watched_");
@@ -153,7 +154,9 @@ export default function App() {
       </Section>
 
 
-      <button onClick={()=>setWatchList([])}> </button>
+      <button onClick={()=>{ setWatchList([]); setRenew(true) }}>
+        { renew?  <span>History reseted - Refresh your browser!</span> : <Renew fill="pink" size="24px" />   }
+      </button>
 
 
 
