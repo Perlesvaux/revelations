@@ -19,7 +19,7 @@ export default function Section({title, isFull, watchList, issues, children}){
 
 
   return(
-  <section className={`card ${ isFull? `${styles.full}` : ""} `} >
+  <section className={`card ${styles.card} ${ isFull? `${styles.full}` : ""} `} >
       {console.log(isFull)}
     
     <button 
