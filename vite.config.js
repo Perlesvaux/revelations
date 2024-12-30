@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base:'/revelations/',
   plugins: [react()],
+  //build:{
+  //  minify:false,
+  //  sourcemap:true
+  //}
 })

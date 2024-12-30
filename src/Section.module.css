@@ -21,10 +21,16 @@ h3{
 }
 
 .onoff {
-  background-color: light-dark(black, black);
-  color: light-dark(azure, white)
+  background-color: light-dark(hotpink, black);
+  color: light-dark(black, white)
 }
 
 .onoff svg {
   vertical-align: middle;
+}
+
+.onoff:hover {
+  filter: hue-rotate(180deg);
+  outline-color: transparent;
+  border: 1px solid transparent;
 }
