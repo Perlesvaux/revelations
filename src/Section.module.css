@@ -7,11 +7,24 @@ h3{
   font-size: 20px;
 }
 
-.full {
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,129,255,1) 0%, rgba(21,238,0,0.5690651260504201) 55%);
-}
-
 .card {
+  display: flex;
+  flex-direction: column;
   padding: 2em;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2) ;
+  width: 90%;
 }
 
+.full {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,129,255,1) 0%, rgba(21,238,0,0.5690651260504201) 55%) !important;
+}
+
+.onoff {
+  background-color: light-dark(black, black);
+  color: light-dark(azure, white)
+}
+
+.onoff svg {
+  vertical-align: middle;
+}

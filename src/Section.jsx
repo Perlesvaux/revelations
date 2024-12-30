@@ -19,10 +19,10 @@ export default function Section({title, isFull, watchList, issues, children}){
 
 
   return(
-  <section className={`card ${styles.card} ${ isFull? `${styles.full}` : ""} `} >
+  <section className={`${styles.card} ${ isFull? `${styles.full}` : ""} `} >
       {console.log(isFull)}
     
-    <button 
+    <button className={styles.onoff} 
         onClick={()=>{setVisibility(!visibility)}}
     > 
         <h3> { title && title }  { visibility? <Up fill="red" size="30px" /> : <Down fill="cyan" size="30px" />  } </h3> 

@@ -125,9 +125,7 @@ export default function App() {
 
   return (
     <>
-      <div className="saluton">
         <p>Lucha contra el <strong>Brainrot</strong>. Manten registro de tu progreso. Cero anuncios ;D</p>
-      </div>
 
       {
         state.map((section, section_indx)=>(

@@ -23,7 +23,8 @@ export default function Video({ topic, src, addToWatchList }){
 
     return <div key={`${watched? 'on' : 'off'}`}>
       <button 
-        className={ `btn btn-${watched? 'primary' : 'secondary'} text-${watched? 'dark' : 'white'}` } 
+        //className={ `btn btn-${watched? 'primary' : 'secondary'} text-${watched? 'dark' : 'white'}` } 
+        className={ watched ? styles.primary : styles.secondary } 
         onClick={()=> { setModal(true);  addToWatchList(topic); }  } 
         //onClick={()=> { setModal(true); setIsReady(false); addToWatchList(topic); }  } 
       > 
