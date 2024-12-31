@@ -25,8 +25,7 @@ export default function Section({title, isFull, watchList, issues, children}){
     <button className={styles.onoff} 
         onClick={()=>{setVisibility(!visibility)}}
     > 
-        <h3> { title && title }  { visibility? <Up fill="pink" size="30px" /> : <Down fill="cyan" size="30px" />  } </h3> 
-
+  { visibility? <Up fill="pink" size="30px" /> : <Down fill="cyan" size="30px" />  } { title && title }  
     </button>
       { visibility &&
         ( 
