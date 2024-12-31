@@ -26,3 +26,17 @@
   outline-color: transparent;
   border: 1px solid transparent;
 }
+
+.visible {
+  transform-origin: top;
+  animation-name: unscroll;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  row-gap: 0.5em;
+}
+
+@keyframes unscroll {
+  from {transform : scaleY(0); opacity: 0;}
+  to {transform: scaleY(1); opacity: 1;}
+}
+

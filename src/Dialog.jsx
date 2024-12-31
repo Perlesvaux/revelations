@@ -24,7 +24,7 @@ export default function Dialog({ openModal, closeModal, children }) {
         {children}
 
         <button 
-          className="btn btn-dark" 
+          className={styles.drkbtn} 
           onClick={closeModal}
         >
           <X fill="lightcoral" size="24px"/>

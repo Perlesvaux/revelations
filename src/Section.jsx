@@ -11,27 +11,29 @@ export default function Section({title, isFull, watchList, issues, children}){
     const completed = containedVideos.every((elem)=> watchList.includes(elem))
     if (completed) issues()
   }
-  //
+  
   useEffect(()=>{
-    console.log("from useEffect", isFull)
     markAsCompleted()
   }, [watchList])
 
 
   return(
-  <section className={`${styles.card} ${ isFull? `${styles.full}` : ""} `} >
-      {console.log(isFull)}
-    
-    <button className={styles.onoff} 
+    <section className={`${styles.card} ${isFull && styles.full}`} >
+      
+      <button 
+        className={styles.onoff} 
         onClick={()=>{setVisibility(!visibility)}}
-    > 
-  { visibility? <Up fill="pink" size="30px" /> : <Down fill="cyan" size="30px" />  } { title && title }  
-    </button>
-      { visibility &&
-        ( 
-          children
-        )
+      > 
+        { visibility? <Up fill="pink" size="30px" /> : <Down fill="cyan" size="30px" />  } { title && title }  
+      </button>
+
+      {
+        visibility && 
+        <div className={styles.visible} >
+          {children}
+        </div>
       }
-  </section>
+
+    </section>
   )
 }

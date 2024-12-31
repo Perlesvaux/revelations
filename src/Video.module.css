@@ -13,7 +13,7 @@
   border: 1px solid transparent;
 }
 .primary:hover{
-  filter: drop-shadow(1px 1px 10px white)  hue-rotate(41deg);
+  background: radial-gradient(circle, rgba(245,20,20,1) 15%, rgba(255,255,165,1) 100%);
   border: 1px solid transparent;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
@@ -24,7 +24,7 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 .secondary:hover{
-  filter: drop-shadow(1px 1px 10px green) hue-rotate(180deg);
+  background-color: rgba(33, 33, 33, 0.5);
   border: 1px solid transparent;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
