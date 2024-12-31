@@ -56,8 +56,11 @@ export default function App() {
         ))
       }
 
-      <button onClick={()=>{ setWatchList([]); setRenew(true) }}>
-        { renew ? <span>History reseted - Refresh your browser!</span> : <Renew fill="thistle" size="24px" />   }
+      <button 
+        className={renew ? styles.reseted : styles.reset}
+        onClick={()=>{ setWatchList([]); setRenew(true) }}
+      >
+        { renew ? <span>History reseted - Refresh your browser!</span> : <Renew fill="black" size="24px" />   }
       </button>
 
     </>
