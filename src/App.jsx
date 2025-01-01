@@ -42,7 +42,7 @@ export default function App() {
   return (
     <>
 
-      <p>Lucha contra el <strong>Brainrot</strong>. Manten registro de tu progreso. Cero anuncios ;D</p>
+      <p>Lucha contra el <strong>Brainrot</strong>. Manten registro de tu progreso. Nuevo contenido cada tanto ;)</p>
 
       {
         state.map((section, section_indx)=>(
