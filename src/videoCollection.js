@@ -1,4 +1,13 @@
 export default [
+    { 
+      full:false,
+      title: "Contra La Gran Ramera",
+      contents: [
+        {src: "https://www.youtube.com/embed/_HTcNrujBSg", topic: "Martillo de Herejes"},
+        { src:"https://www.youtube.com/embed/mZcrXKWYdm0", topic:"Calvino y Lutero. Depredación" },
+
+      ]
+    },
     {
       full: false,
       title: "Body-count does (not) matter" ,
@@ -42,7 +51,6 @@ export default [
       title:"Libre examen",
       contents: [
         { src:"https://www.youtube.com/embed/_5LS2lRNEwI", topic:"Islam Aesthetic y Coquette 🎀" },
-        { src:"https://www.youtube.com/embed/mZcrXKWYdm0", topic:"Calvino y Lutero. Depredación" },
         { src:"https://www.youtube.com/embed/CfRvIvNcBcE", topic:"Les franchutes ont encore récidivé - I" },
         ]
     },
