@@ -42,7 +42,7 @@ export default function App() {
   return (
     <>
 
-      <p>Lucha contra el <strong>Brainrot</strong>. Manten registro de tu progreso. Nuevo contenido cada tanto ;)</p>
+      <p>Reject ((modernity))! <a style={{color:"coral", fontWeight:"bold", textDecoration: "underline" }} href="https://rosario-lime.vercel.app/"><strong>Deus Vult!</strong></a> </p>
 
       {
         state.map((section, section_indx)=>(
