@@ -1,4 +1,12 @@
 export default [
+  {
+    full:false,
+    title: "El Rey esta desnudo...",
+    contents: [
+      {src:"https://www.youtube.com/embed/Y1iHX2Udcyk", topic:"Mi Lucha"},
+      {src:"https://www.youtube.com/embed/5dVFlPNTjYg", topic:"Anillo de Lanserote"},
+    ]
+  },
     { 
       full:false,
       title: "Contra La Gran Ramera",
