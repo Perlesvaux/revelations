@@ -1,7 +1,5 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react'
-import styles from "./Video.module.css"
-//import { useState, Suspense, lazy, useEffect } from 'react'
-//const Dialog = lazy(()=> import('./Dialog.jsx'))
 import Dialog from './Dialog.jsx'
 import LoadingScreen from './LoadingScreen.jsx'
 
@@ -17,16 +15,15 @@ export default function Video({ topic, src, addToWatchList }){
         return saved ? JSON.parse(saved).includes(topic) : false;
       })
 
-    //setWatched( localStorage.getItem("_watched_").includes(topic) || []   )
   }, [isReady, modal]
   )
 
-    return <div key={`${watched? 'on' : 'off'}`}>
+    return <div key={`${watched? 'on' : 'off'}`} className="w-full">
       <button 
-        //className={ `btn btn-${watched? 'primary' : 'secondary'} text-${watched? 'dark' : 'white'}` } 
-        className={ watched ? styles.primary : styles.secondary } 
+        className={ watched 
+          ?   `bg-slate-300/90 hover:bg-slate-400/90 text-rose-950 text-shadow-md w-full`
+          :   `bg-stone-400/90 hover:bg-stone-500/90 text-stone-100 text-shadow-md w-full`} 
         onClick={()=> { setModal(true);  addToWatchList(topic); }  } 
-        //onClick={()=> { setModal(true); setIsReady(false); addToWatchList(topic); }  } 
       > 
         <strong>{ topic }</strong> 
 
@@ -34,7 +31,7 @@ export default function Video({ topic, src, addToWatchList }){
 
       <Dialog  closeModal={()=>{setModal(false); setIsReady(true) }} openModal={modal}>
 
-        { !isReady && <aside className={styles.loadingplaceholder}> <LoadingScreen taste="dotted" color="blue"/></aside> }
+        { !isReady && <aside className="h-[600px] flex flex-col justify-center items-center"> <LoadingScreen taste="dotted" color="blue"/></aside> }
           <iframe
               autoFocus
               width="100%" 
@@ -53,3 +50,9 @@ export default function Video({ topic, src, addToWatchList }){
       </Dialog>
       </div>
 }
+
+Video.propTypes = {
+  topic: PropTypes.string.isRequired, 
+  src: PropTypes.string.isRequired,
+  addToWatchList: PropTypes.func.isRequired
+};

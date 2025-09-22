@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react'
 import Down from './Down.jsx'
 import Up from './Up.jsx'
@@ -18,10 +19,10 @@ export default function Section({title, isFull, watchList, issues, children}){
 
 
   return(
-    <section className={`${styles.card} ${isFull && styles.full}`} >
+    <section className={`${styles.card} ${isFull && styles.full} portrait:w-[60svw] landscape:h-[30svh] landscape:w-[30svh] overflow-scroll `} >
       
       <button 
-        className={styles.onoff} 
+        className={`${styles.onoff} flex place-items-center`} 
         onClick={()=>{setVisibility(!visibility)}}
       > 
         { visibility? <Up fill="pink" size="30px" /> : <Down fill="cyan" size="30px" />  } { title && title }  
@@ -29,7 +30,7 @@ export default function Section({title, isFull, watchList, issues, children}){
 
       {
         visibility && 
-        <div className={styles.visible} >
+        <div className={`${styles.visible} flex flex-col place-items-center` }>
           {children}
         </div>
       }
@@ -37,3 +38,11 @@ export default function Section({title, isFull, watchList, issues, children}){
     </section>
   )
 }
+
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  isFull: PropTypes.bool.isRequired, 
+  watchList: PropTypes.array.isRequired,
+  issues: PropTypes.func.isRequired,
+  children: PropTypes.node
+};

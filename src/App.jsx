@@ -5,6 +5,7 @@ import Section from './Section.jsx'
 import Video from './Video.jsx'
 import Renew from './Renew.jsx'
 import videoCollection from './videoCollection.js'
+//import "./globals.css"
 
 const initialState = videoCollection
 
@@ -40,9 +41,12 @@ export default function App() {
   }
 
   return (
-    <>
+    <div  className="m-0 flex flex-col place-items-center bg-gradient-to-l from-[#33b7e2] via-[#5e62b0] to-[#dc307c]">
 
-      <p>Reject ((modernity))! <a style={{color:"coral", fontWeight:"bold", textDecoration: "underline" }} href="https://rosario-lime.vercel.app/"><strong>Deus Vult!</strong></a> </p>
+
+      <h1 className="mb-4 text-4xl font-extrabold tracking-tight dark:text-white text-center">Reject ((modernity))! </h1> 
+      <h2><a className="animate-pulse font-medium text-slate-300 dark:text-slate-200 hover:underline text-4xl font-extrabold tracking-tight dark:text-white text-center" href="https://rosario-lime.vercel.app/" target="_blank"><strong>Deus Vult!</strong></a></h2>
+      <main className="flex flex-col gap-4 landscape:grid landscape:grid-cols-3 " >
 
       {
         state.map((section, section_indx)=>(
@@ -55,6 +59,7 @@ export default function App() {
           </Section>
         ))
       }
+      </main>
 
       <button 
         className={renew ? styles.reseted : styles.reset}
@@ -63,6 +68,6 @@ export default function App() {
         { renew ? <span>History reseted - Refresh your browser!</span> : <Renew fill="black" size="24px" />   }
       </button>
 
-    </>
+    </div>
   )
 }
